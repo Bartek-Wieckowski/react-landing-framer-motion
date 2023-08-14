@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import logo from "../utils/images";
+import imagePaths from "../utils/images"
 
 export default function Header({ webinarTitle, webinarDate }) {
   return (
     <section>
       <header>
-        <img src={logo} alt="" />
+        <img src={imagePaths.logo} alt="" />
         <motion.div
           className="title"
           initial={{ y: -250 }}
