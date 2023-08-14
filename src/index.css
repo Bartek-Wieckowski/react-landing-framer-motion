@@ -23,6 +23,7 @@ body {
   color: var(--color-primary);
   background: var(--gradient-9) no-repeat;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 html {
@@ -86,6 +87,18 @@ h3 {
   font-size: 2.4rem;
   line-height: 32px;
   margin-bottom: 15px;
+}
+
+button{
+  color: white;
+  padding: 10px 30px;
+  font-size: 1em;
+  background: var(--teal-4);
+  border-radius: 50px;
+  border: 1px solid white;
+  margin: 40px auto 0;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 @media (max-width: 1699.98px) {
@@ -243,4 +256,11 @@ header h1 {
 }
 .home-wrapper .content {
   max-width: 800px;
+}
+.home-wrapper  button{
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.6em;
+  border: 3px solid white;
+  margin: 30px 20px;
 }
