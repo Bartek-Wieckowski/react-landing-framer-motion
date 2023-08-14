@@ -1,3 +1,9 @@
 import logo from "../assets/LOGO.webp";
+import homeMainImg from "../assets/home.jpg";
 
-export default logo;
+const imagePaths = {
+  logo,
+  homeMainImg,
+};
+
+export default imagePaths;
