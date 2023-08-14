@@ -47,6 +47,7 @@ p {
   font-size: 1.7rem;
   line-height: 24px;
   margin-bottom: 15px;
+  margin-top: 0;
 }
 
 h1,
@@ -228,4 +229,18 @@ header .title {
 
 header h1 {
   border-bottom: 1px solid var(--teal-4);
+}
+
+/* HOME CPOMONENT */
+.home-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.home-wrapper .home-main-img {
+  max-width: 300px;
+  width: 100%;
+}
+.home-wrapper .content {
+  max-width: 800px;
 }
