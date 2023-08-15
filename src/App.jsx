@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Registration from './pages/Registration';
 import About from './pages/About';
 import PageNotFound from './pages/PageNotFound';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   return (
@@ -16,15 +17,17 @@ function App() {
 
       <div className="container">
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route
-              path="/about"
-              element={<About webinarContent={webinarContentObj} />}
-            ></Route>
-            <Route path="/registration" element={<Registration />}></Route>
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route
+                path="/about"
+                element={<About webinarContent={webinarContentObj} />}
+              ></Route>
+              <Route path="/registration" element={<Registration />}></Route>
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </AnimatePresence>
         </BrowserRouter>
       </div>
     </div>
