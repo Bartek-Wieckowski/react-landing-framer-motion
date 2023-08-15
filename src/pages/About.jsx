@@ -65,7 +65,7 @@ export default function About({ webinarContent }) {
           initial="hidden"
           animate="visible"
         >
-          <Link to="/about">
+          <Link to="/registration">
             <motion.button variants={buttonVariants} whileHover="hover">
               Dalej
             </motion.button>
