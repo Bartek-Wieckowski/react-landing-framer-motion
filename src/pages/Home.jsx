@@ -1,45 +1,46 @@
-import { Link } from "react-router-dom";
-import Welcome from "../components/Welcome";
-import imagePaths from "../utils/images";
-import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
+import Welcome from '../components/Welcome';
+import imagePaths from '../utils/images';
+import { motion } from 'framer-motion';
 
 const containerVariants = {
   hidden: {
     opacity: 0,
-    x: "100vw",
+    x: '100vw',
   },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      type: "spring",
+      type: 'spring',
       delay: 0.5,
     },
   },
   exit: {
-    x: "-100vw",
-    transition: { ease: "easeInOut" },
+    x: '-100vw',
+    transition: { ease: 'easeInOut' },
   },
 };
 
 const buttonVariants = {
   hover: {
     scale: 1.1,
-    textShadow: "0px 0px 8px rgb(255,255,255)",
-    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    textShadow: '0px 0px 8px rgb(255,255,255)',
+    boxShadow: '0px 0px 8px rgb(255,255,255)',
     transition: {
-      yoyo: Infinity,
+      repeatType: 'mirror',
+      repeat: Infinity,
       duration: 0.3,
     },
   },
 };
 const nextVariants = {
   hidden: {
-    x: "-100vw",
+    x: '-100vw',
   },
   visible: {
     x: 0,
-    transition: { type: "spring", stiffness: 120 },
+    transition: { type: 'spring', stiffness: 120 },
   },
 };
 
@@ -53,9 +54,18 @@ export default function Home({ homeContent }) {
       exit="exit"
     >
       <div className="home-wrapper">
-        <img src={imagePaths.homeMainImg} alt="Misja Perfekcja w pracy" className="home-main-img" />
+        <img
+          src={imagePaths.homeMainImg}
+          alt="Misja Perfekcja w pracy"
+          className="home-main-img"
+        />
         <Welcome homeContent={homeContent} />
-        <motion.div className="next" variants={nextVariants} initial="hidden" animate="visible">
+        <motion.div
+          className="next"
+          variants={nextVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <Link to="/about">
             <motion.button variants={buttonVariants} whileHover="hover">
               Dalej
