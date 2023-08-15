@@ -46,17 +46,17 @@ const nextVariants = {
 export default function About({ webinarContent }) {
   return (
     <motion.div
-      className="base container"
+      className="about"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
     >
-      <div className="home-wrapper">
+      <div className="about-wrapper">
         <img
           src={imagePaths.homeMainImg}
           alt="Misja Perfekcja w pracy"
-          className="home-main-img"
+          className="about-main-img"
         />
         <DescriptionWebinar webinarContent={webinarContent} />
         <motion.div
