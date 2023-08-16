@@ -1,11 +1,11 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import { landingSettings, webinarContentObj } from './utils/data-settings';
-import Home from './pages/Home';
-import Registration from './pages/Registration';
-import About from './pages/About';
-import PageNotFound from './pages/PageNotFound';
-import { AnimatePresence } from 'framer-motion';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { landingSettings, webinarContentObj } from "./utils/data-settings";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Registration from "./pages/Registration";
+import About from "./pages/About";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
@@ -20,10 +20,7 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />}></Route>
-              <Route
-                path="/about"
-                element={<About webinarContent={webinarContentObj} />}
-              ></Route>
+              <Route path="/about" element={<About webinarContent={webinarContentObj} />}></Route>
               <Route path="/registration" element={<Registration />}></Route>
               <Route path="*" element={<PageNotFound />} />
             </Routes>
