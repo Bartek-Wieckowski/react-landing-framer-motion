@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { landingSettings } from "../utils/data-settings";
+import CountdownTimer from "../components/CountdownTimer";
 
 const containerVariants = {
   hidden: {
@@ -13,35 +15,30 @@ const containerVariants = {
     },
   },
   exit: {
-    x: '-100vw',
-    transition: { ease: 'easeInOut' },
+    x: "-100vw",
+    transition: { ease: "easeInOut" },
   },
 };
 
 const buttonVariants = {
   hover: {
     scale: 1.1,
-    textShadow: '0px 0px 8px rgb(255,255,255)',
-    boxShadow: '0px 0px 8px rgb(255,255,255)',
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
     transition: {
-      repeatType: 'mirror',
+      repeatType: "mirror",
       repeat: Infinity,
       duration: 0.3,
     },
   },
 };
 
+
 export default function Home() {
   return (
-    <motion.div
-      className="home"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-    >
+    <motion.div className="home" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <div className="home-wrapper">
-        <h2>Do rozpoczecia wydarzenia zostało:</h2>
+        <CountdownTimer targetDate={landingSettings.date}/>
         <Link to="/about">
           <motion.button variants={buttonVariants} whileHover="hover">
             DOWIEDZ SIĘ WIĘCEJ...
