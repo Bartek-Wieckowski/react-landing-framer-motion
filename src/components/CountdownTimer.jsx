@@ -1,6 +1,6 @@
 import { useCountdown } from "../hooks/useCountdown";
 
-function CountdownTimer({ targetDate }) {
+function CountdownTimer({ targetDate, onCountdownExpired }) {
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
   const formattedHours = hours === 0 ? "0" : hours.toString().padStart(2, "0");
@@ -10,6 +10,7 @@ function CountdownTimer({ targetDate }) {
   const countdownExpired = days + hours + minutes + seconds <= 0;
 
   if (countdownExpired) {
+    onCountdownExpired();
     return <p className="countdown-expired">Webinar się już odbył, powiadomimy Cię o następnym :)</p>;
   } else {
     return (
