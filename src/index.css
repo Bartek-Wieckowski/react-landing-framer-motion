@@ -255,9 +255,15 @@ header h1 {
 .about-wrapper .about-main-img {
   max-width: 300px;
   width: 100%;
+  border-radius: 12px;
 }
+
 .about-wrapper .content {
   max-width: 800px;
+}
+
+.about-wrapper .next button {
+  margin: 0 auto;
 }
 
 
@@ -292,4 +298,146 @@ header h1 {
   font-size: 18px;
   color: #ff0000;
   margin-top: 10px;
+}
+
+/* REGISTRATION PAGES */
+.registration-wrapper {
+  display: flex;
+}
+
+.registration-wrapper .laptop {
+  width: 600px;
+  height: 379px;
+  margin: auto;
+  position: relative;
+}
+
+.registration-wrapper .laptopScreen {
+  width: 451px;
+  height: 283px;
+  position: absolute;
+  top: 18px;
+  left: 68px;
+  overflow: scroll;
+}
+
+.registration-wrapper .laptopScreen img {
+  max-width: 100%;
+}
+
+.registration-wrapper .laptopScreen::-webkit-scrollbar {
+  display: none;
+}
+
+.registration-wrapper .phone,
+.registration-wrapper .phoneScreen {
+  display: none;
+}
+
+.registration-wrapper form {
+  background-color: white;
+  padding: 0px 60px;
+  border-radius: 10px;
+}
+
+.registration-wrapper h2 {
+  color: rgb(77, 1, 77);
+  text-align: center;
+}
+
+.registration-wrapper button {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  background-color: rebeccapurple;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.registration-wrapper .formInput {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.registration-wrapper input {
+  padding: 15px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+
+.registration-wrapper label {
+  font-size: 12px;
+  color: gray;
+}
+
+.registration-wrapper span {
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  display: none;
+}
+
+.registration-wrapper input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+.registration-wrapper input:invalid[focused="true"]~span {
+  display: block;
+}
+
+
+@media (max-width: 767.98px) {
+
+  .registration-wrapper .laptop,
+  .registration-wrapper .laptopScreen {
+    display: none;
+  }
+
+  .registration-wrapper .phone,
+  .registration-wrapper .phoneScreen {
+    display: block;
+  }
+
+  .registration-wrapper .phone {
+    margin: auto;
+    width: 300px;
+    height: 600px;
+    position: relative;
+  }
+
+  .registration-wrapper .phone-picture {
+    height: 563px;
+    width: 100%;
+  }
+
+  .registration-wrapper .phoneScreen {
+    width: 264px;
+    height: 567px;
+    position: absolute;
+    top: 17px;
+    left: 18px;
+    border-radius: 28px;
+    overflow: scroll;
+  }
+
+  .registration-wrapper .phoneScreen::-webkit-scrollbar {
+    display: none;
+  }
+
+  .registration-wrapper .phoneApp {
+    width: 100%;
+    border-radius: 32px;
+    ;
+  }
+
+
 }
