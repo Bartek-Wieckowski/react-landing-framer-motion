@@ -259,3 +259,37 @@ header h1 {
 .about-wrapper .content {
   max-width: 800px;
 }
+
+
+/* COUNTDOWN TIMER COMPONENT */
+.countdown-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.countdown-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-item {
+  margin: 0 15px;
+  font-size: 24px;
+}
+
+.countdown-value {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.countdown-expired {
+  font-size: 18px;
+  color: #ff0000;
+  margin-top: 10px;
+}
