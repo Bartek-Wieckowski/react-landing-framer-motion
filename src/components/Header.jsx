@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 import imagePaths from "../utils/images"
 
 export default function Header({ webinarTitle, webinarDate }) {
+  const formattedDay = webinarDate.day.toString().padStart(2, '0');
+  const formattedMonth = webinarDate.month.toString().padStart(2, '0');
+  const formattedYear = webinarDate.year;
+
+  const formattedDate = `${formattedDay}.${formattedMonth}.${formattedYear}`;
+  
   return (
     <section>
       <header>
@@ -15,7 +21,7 @@ export default function Header({ webinarTitle, webinarDate }) {
           <h1>
             Webinar : {webinarTitle}
           </h1>
-          <h2>Data : {webinarDate}</h2>
+          <h2>Data : {formattedDate}</h2>
         </motion.div>
       </header>
     </section>
