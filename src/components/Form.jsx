@@ -1,10 +1,16 @@
 import { useState } from "react";
 
 export default function Form() {
+  const [values, setValues] = useState({
+    name: "",
+    birthday: "",
+    email: "",
+  });
+
   const inputs = [
     {
       id: 1,
-      name: "Imię",
+      name: "nameInput",
       type: "text",
       placeholder: "Wpisz swoje imię",
       errormessage: "Wpisz conajmniej 3 litery bez znaków specjalnych i liczb.",
@@ -30,30 +36,36 @@ export default function Form() {
       label: "Data urodzenia",
     },
   ];
+
+  function handleOnChange(e) {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  }
+
   return (
     <form>
       <h2>Zapisz się na webinar!</h2>
       {inputs.map((input) => (
-        <FormInput key={input.id} input={input} />
+        <FormInput key={input.id} input={input} onChange={handleOnChange} value={values[input.name]} />
       ))}
       <button>Wyślij i odbierz prezent!</button>
     </form>
   );
 }
 
-function FormInput({ input }) {
+function FormInput({ input, value, onChange }) {
   const [focused, setFocused] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
   const { label, errormessage, type } = input;
 
-  function handleFocus(e) {
+  function handleFocus() {
     setFocused(true);
   }
 
   function handleMouseEnter() {
-    setShowTooltip(true);
-    console.log("najechane");
+    if (type === "date" && value === "") {
+      setShowTooltip(true);
+    }
   }
 
   function handleMouseLeave() {
@@ -68,7 +80,7 @@ function FormInput({ input }) {
   return (
     <div className={`formInput ${type}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <label>{label}</label>
-      <input {...input} onBlur={handleFocus} focused={focused.toString()} />
+      <input {...input} onBlur={handleFocus} focused={focused.toString()} onChange={(e) => onChange(e)} />
       {tooltip}
       <span>{errormessage}</span>
     </div>
