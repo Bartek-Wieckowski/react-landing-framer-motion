@@ -3,11 +3,13 @@ const landingSettings = {
   date: {
     day: 16,
     month: 8,
-    year: 2023,
+    year: 2024,
     hours: 16,
     minutes: 34,
   },
 };
+
+const webinarNumberAndDate = `Webinar ${landingSettings.date.year}-${landingSettings.date.month}-${landingSettings.date.day}`;
 
 const webinarTitle =
   "Czy zgodzisz się, że misja to odpowiedzialne zadanie do spełnienia?\n To także drogowskaz, który wyznacza kierunek działań.";
@@ -28,4 +30,4 @@ const webinarContentObj = {
   txts: [webinarTxt1, webinarTxt2, webinarTxt3, webinarTxt4, webinarTxt5, webinarTxt6],
 };
 
-export { landingSettings, webinarContentObj };
+export { landingSettings, webinarContentObj, webinarNumberAndDate };
