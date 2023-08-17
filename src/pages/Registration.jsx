@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import imagePaths from "../utils/images";
+
+import Gift from "../components/Gift";
 import Form from "../components/Form";
 
 const containerVariants = {
@@ -45,21 +46,8 @@ export default function Registration() {
       exit="exit"
     >
       <div className="registration-wrapper">
-        <div className="gift-screens">
-          <div className="laptop">
-            <img src={imagePaths.laptopImg} alt="" />
-            <div className="laptopScreen">
-              <img src={imagePaths.laptopPDF} alt="" />
-            </div>
-          </div>
-          <div className="phone">
-            <img src={imagePaths.phoneImg} alt="" className="phone-picture" />
-            <div className="phoneScreen">
-              <img src={imagePaths.phonePDF} alt="" className="phoneApp" />
-            </div>
-          </div>
-        </div>
-        <Form/>
+        <Gift />
+        <Form />
       </div>
     </motion.div>
   );
