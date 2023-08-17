@@ -4,6 +4,7 @@
 :root {
   --color-primary: #262626;
   --color-btn: var(--teal-4);
+  --font-family: 'Montserrat', sans-serif;
 }
 
 *,
@@ -18,7 +19,7 @@ body {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-family);
   color: var(--color-primary);
   background: var(--gradient-9) no-repeat;
   min-height: 100vh;
@@ -68,24 +69,97 @@ li {
 
 h1 {
   font-weight: 400;
-  font-size: 5.6rem;
+  font-size: clamp(1.8rem, 5.6rem, 10vw);
   line-height: 1.3;
   margin-bottom: 20px;
 }
 
 h2 {
   font-weight: 400;
-  font-size: 3.2rem;
-  line-height: 36px;
+  font-size: clamp(1.8rem, 3.2rem, 6vw);
+  line-height: clamp(21px, 36px, 3.2vw);
   margin-bottom: 18px;
 }
 
 h3 {
   font-weight: 400;
-  font-size: 2.4rem;
-  line-height: 32px;
+  font-size: clamp(1.8rem, 2.4rem, 4vw);
+  line-height: clamp(21px, 32px, 3.2vw);
   margin-bottom: 15px;
 }
+
+@media (max-width: 1699.98px) {
+  h1 {
+    font-size: clamp(1.8rem, 3.2rem, 6vw);
+    line-height: clamp(21px, 39px, 3.2vw);
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 2.8rem, 5.5vw);
+    line-height: clamp(21px, 29px, 2.8vw);
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-size: clamp(1.8rem, 2.4rem, 4.5vw);
+    line-height: clamp(21px, 24px, 2.4vw);
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  h1 {
+    font-size: clamp(1.8rem, 2.8rem, 5.5vw);
+    line-height: clamp(21px, 28px, 2.8vw);
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 2.4rem, 4.7vw);
+    line-height: clamp(21px, 29px, 2.9vw);
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-size: clamp(1.8rem, 2.1rem, 4.3vw);
+    line-height: clamp(21px, 24px, 2.4vw);
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  h1 {
+    font-size: clamp(1.8rem, 2.4rem, 4.5vw);
+  }
+
+  h3 {
+    font-size: clamp(1.8rem, 2.2rem, 4.2vw);
+  }
+}
+
+@media (max-width: 575.98px) {
+  h1 {
+    font-size: clamp(1.8rem, 1.8rem, 3.5vw);
+    line-height: clamp(21px, 21px, 3.2vw);
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 2.4rem, 4.7vw);
+    line-height: clamp(21px, 29px, 2.9vw);
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-size: clamp(1.8rem, 2rem, 4.2vw);
+    line-height: clamp(21px, 24px, 2.4vw);
+    margin-bottom: 12px;
+  }
+}
+
+
+
 
 .button {
   color: white;
@@ -98,88 +172,16 @@ h3 {
   opacity: 0.7;
 }
 
-@media (max-width: 1699.98px) {
-  h1 {
-    font-weight: 400;
-    font-size: 3.2rem;
-    line-height: 39px;
-    margin-bottom: 20px;
-  }
 
-  h2 {
-    font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 29px;
-    margin-bottom: 15px;
-  }
-
-  h3 {
-    font-weight: 400;
-    font-size: 2.4rem;
-    line-height: 24px;
-    margin-bottom: 12px;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  h1 {
-    font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 28px;
-    margin-bottom: 20px;
-  }
-
-  h2 {
-    font-weight: 400;
-    font-size: 2.4rem;
-    line-height: 29px;
-    margin-bottom: 15px;
-  }
-
-  h3 {
-    font-weight: 400;
-    font-size: 2.1rem;
-    line-height: 24px;
-    margin-bottom: 12px;
-  }
-}
 
 @media (max-width: 991.98px) {
   section {
     margin: 0 auto 1rem;
   }
 
-  h1 {
-    font-size: 2.4rem;
-  }
-
-  h3 {
-    font-size: 2.2rem;
-  }
 }
 
-@media (max-width: 575.98px) {
-  h1 {
-    font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 30px;
-    margin-bottom: 15px;
-  }
 
-  h2 {
-    font-weight: 400;
-    font-size: 2.4rem;
-    line-height: 29px;
-    margin-bottom: 15px;
-  }
-
-  h3 {
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 24px;
-    margin-bottom: 12px;
-  }
-}
 
 a,
 a:hover {
@@ -227,7 +229,7 @@ a:hover {
 /* HEADER COMPONENT */
 
 header {
-  padding: 4rem;
+  padding: 4rem 1.5rem;
   display: flex;
   align-items: center;
   gap: 3rem;
@@ -239,6 +241,15 @@ header .title {
 
 header h1 {
   border-bottom: 1px solid var(--teal-4);
+}
+
+@media (max-width: 991.98px) {
+  header {
+    flex-direction: column;
+  }
+  header h1 {
+    border-bottom: unset;
+  }
 }
 
 /* HOME PAGE  */
@@ -299,10 +310,27 @@ header h1 {
   color: #ff0000;
   margin-top: 10px;
 }
+@media (max-width: 459.98px) {
+  .countdown-item {
+    font-size: 20px;
+  }
+}
+@media (max-width: 380.98px) {
+  .countdown-item {
+    font-size: 18px;
+  }
+}
+@media (max-width: 345.98px) {
+  .countdown-item {
+    font-size: 15px;
+  }
+}
 
 /* REGISTRATION PAGES */
 .registration-wrapper {
   display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .registration-wrapper .laptop {
@@ -310,6 +338,10 @@ header h1 {
   height: 379px;
   margin: auto;
   position: relative;
+}
+
+.registration-wrapper .laptop img {
+  max-width: 100%;
 }
 
 .registration-wrapper .laptopScreen {
@@ -334,11 +366,8 @@ header h1 {
   display: none;
 }
 
-.registration-wrapper form {
-  background-color: white;
-  padding: 0px 60px;
-  border-radius: 10px;
-}
+/* .registration-wrapper form {
+} */
 
 .registration-wrapper h2 {
   color: rgb(77, 1, 77);
@@ -363,7 +392,28 @@ header h1 {
 .registration-wrapper .formInput {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  position: relative;
+}
+
+/* Styl tooltipu */
+.tooltip {
+  position: absolute;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white !important;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1000;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  max-width: 350px;
+  width: 100%;
+}
+
+.formInput.date:hover .tooltip {
+  display: block;
 }
 
 .registration-wrapper input {
@@ -371,6 +421,7 @@ header h1 {
   margin: 10px 0px;
   border-radius: 5px;
   border: 1px solid gray;
+  font-family: var(--font-family);
 }
 
 
@@ -384,6 +435,8 @@ header h1 {
   padding: 3px;
   color: red;
   display: none;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 
 .registration-wrapper input:invalid[focused="true"] {
@@ -393,6 +446,17 @@ header h1 {
 .registration-wrapper input:invalid[focused="true"]~span {
   display: block;
 }
+
+@media (max-width: 991.98px) {
+  .registration-wrapper {
+    flex-direction: column;
+  }
+
+  .gift-screens {
+    order: 2;
+  }
+}
+
 
 
 @media (max-width: 767.98px) {
