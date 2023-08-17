@@ -1,6 +1,26 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate  } from "react-router-dom";
+import { getDatabase, ref, push, get } from "firebase/database";
+import { webinarNumberAndDate } from "../utils/data-settings";
+import app from "../firebaseConfig";
+
+
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      repeatType: "mirror",
+      repeat: Infinity,
+      duration: 0.3,
+    },
+  },
+};
 
 export default function Form() {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     name: "",
     birthday: "",
@@ -10,7 +30,7 @@ export default function Form() {
   const inputs = [
     {
       id: 1,
-      name: "nameInput",
+      name: "name",
       type: "text",
       placeholder: "Wpisz swoje imię",
       errormessage: "Wpisz conajmniej 3 litery bez znaków specjalnych i liczb.",
@@ -41,13 +61,50 @@ export default function Form() {
     setValues({ ...values, [e.target.name]: e.target.value });
   }
 
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+    const database = getDatabase(app);
+    const emailID = values.email.replace(/[.]/g, "_");
+    const formDataRef = ref(database, webinarNumberAndDate + "/" + emailID);
+
+    try {
+      const snapshot = await get(formDataRef);
+      if (snapshot.exists()) {
+        alert("Ten adres e-mail już istnieje w bazie danych!");
+        return;
+      }
+
+      await push(formDataRef, {
+        id: crypto.randomUUID(),
+        name: values.name.trim(),
+        email: values.email.trim(),
+        birthday: values.birthday,
+      });
+
+      setValues((prevValues) => ({
+        ...prevValues,
+        name: "",
+        email: "",
+        birthday: "",
+      }));
+      alert("Success");
+
+      navigate("/thanks");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
-    <form>
+    <form onSubmit={handleFormSubmit}>
       <h2>Zapisz się na webinar!</h2>
       {inputs.map((input) => (
         <FormInput key={input.id} input={input} onChange={handleOnChange} value={values[input.name]} />
       ))}
-      <button>Wyślij i odbierz prezent!</button>
+
+      <motion.button className="button" variants={buttonVariants} whileHover="hover" type="submit">
+        Wyślij i odbierz prezent!
+      </motion.button>
     </form>
   );
 }
