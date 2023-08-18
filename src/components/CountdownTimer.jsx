@@ -1,4 +1,7 @@
+import { useEffect } from "react";
 import { useCountdown } from "../hooks/useCountdown";
+import { Link } from "react-router-dom";
+import AnimatedButton from "./AnimatedButton";
 
 function CountdownTimer({ targetDate, onCountdownExpired }) {
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
@@ -9,30 +12,45 @@ function CountdownTimer({ targetDate, onCountdownExpired }) {
 
   const countdownExpired = days + hours + minutes + seconds <= 0;
 
-  if (countdownExpired) {
-    onCountdownExpired();
-    return <p className="countdown-expired">Webinar się już odbył, powiadomimy Cię o następnym :)</p>;
-  } else {
-    return (
-      <div className="countdown-container">
-        <h2 className="countdown-title">Do rozpoczęcia wydarzenia zostało:</h2>
-        <div className="countdown">
-          <div className="countdown-item">
-            <span className="countdown-value">{days}</span> dni
+  useEffect(() => {
+    if (countdownExpired) {
+      onCountdownExpired();
+    }
+  }, [countdownExpired, onCountdownExpired]);
+
+  return (
+    <div className="countdown-container">
+      {countdownExpired ? (
+        <>
+          <p className="countdown-expired">Webinar już się odbył, powiadomimy Cię o następnym 😊</p>
+          <a href="https://www.misjaperfekcja.pl/blog" target="_blank" rel="noopener noreferrer">
+            <AnimatedButton>CZYTAJ NASZ BLOG!</AnimatedButton>
+          </a>
+        </>
+      ) : (
+        <>
+          <h2 className="countdown-title">Do rozpoczęcia wydarzenia zostało:</h2>
+          <div className="countdown">
+            <div className="countdown-item">
+              <span className="countdown-value">{days}</span> dni
+            </div>
+            <div className="countdown-item">
+              <span className="countdown-value">{formattedHours}</span> godzin
+            </div>
+            <div className="countdown-item">
+              <span className="countdown-value">{formattedMinutes}</span> minut
+            </div>
+            <div className="countdown-item">
+              <span className="countdown-value">{formattedSeconds}</span> sekund
+            </div>
           </div>
-          <div className="countdown-item">
-            <span className="countdown-value">{formattedHours}</span> godzin
-          </div>
-          <div className="countdown-item">
-            <span className="countdown-value">{formattedMinutes}</span> minut
-          </div>
-          <div className="countdown-item">
-            <span className="countdown-value">{formattedSeconds}</span> sekund
-          </div>
-        </div>
-      </div>
-    );
-  }
+          <Link to="/about">
+            <AnimatedButton>DOWIEDZ SIĘ WIĘCEJ...</AnimatedButton>
+          </Link>
+        </>
+      )}
+    </div>
+  );
 }
 
 export default CountdownTimer;
