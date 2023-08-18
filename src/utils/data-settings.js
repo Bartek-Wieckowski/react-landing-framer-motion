@@ -7,6 +7,7 @@ const landingSettings = {
     hours: 20,
     minutes: 0,
   },
+  gift: true,
 };
 
 const webinarNumberAndDate = `Webinar ${landingSettings.date.year}-${landingSettings.date.month}-${landingSettings.date.day}`;
