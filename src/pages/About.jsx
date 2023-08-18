@@ -38,12 +38,12 @@ const buttonVariants = {
   },
 };
 
-export default function About({ webinarContent }) {
+export default function About({ webinarContentTop, webinarContentBottom }) {
   return (
     <motion.div className="about" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <div className="about-wrapper">
         <img src={imagePaths.homeMainImg} alt="Misja Perfekcja w pracy" className="about-main-img" />
-        <DescriptionWebinar webinarContent={webinarContent} />
+        <DescriptionWebinar webinarContentTop={webinarContentTop} webinarContentBottom={webinarContentBottom} />
         <div className="next">
           <Link to="/registration">
             <motion.button className="button" variants={buttonVariants} whileHover="hover">
