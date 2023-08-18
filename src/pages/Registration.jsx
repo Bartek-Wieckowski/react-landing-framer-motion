@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { landingSettings } from "../utils/data-settings";
 
 import Gift from "../components/Gift";
 import Form from "../components/Form";
@@ -26,8 +27,6 @@ const containerVariants = {
   },
 };
 
-
-
 export default function Registration() {
   return (
     <motion.div
@@ -38,7 +37,7 @@ export default function Registration() {
       exit="exit"
     >
       <div className="registration-wrapper">
-        <Gift />
+        {landingSettings.gift && <Gift />}
         <Form />
       </div>
     </motion.div>

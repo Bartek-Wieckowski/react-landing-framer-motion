@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getDatabase, ref, push, get } from "firebase/database";
-import { webinarNumberAndDate } from "../utils/data-settings";
+import { webinarNumberAndDate, landingSettings } from "../utils/data-settings";
 import app from "../firebaseConfig";
-
 
 const buttonVariants = {
   hover: {
@@ -102,9 +101,15 @@ export default function Form() {
         <FormInput key={input.id} input={input} onChange={handleOnChange} value={values[input.name]} />
       ))}
 
-      <motion.button className="button" variants={buttonVariants} whileHover="hover" type="submit">
-        Wyślij i odbierz prezent!
-      </motion.button>
+      {landingSettings.gift ? (
+        <motion.button className="button" variants={buttonVariants} whileHover="hover" type="submit">
+          Wyślij i odbierz prezent!
+        </motion.button>
+      ) : (
+        <motion.button className="button" variants={buttonVariants} whileHover="hover" type="submit">
+          Wyślij
+        </motion.button>
+      )}
     </form>
   );
 }
