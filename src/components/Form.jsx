@@ -1,22 +1,10 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getDatabase, ref, push, get } from "firebase/database";
 import { webinarNumberAndDate, landingSettings } from "../utils/data-settings";
 import app from "../firebaseConfig";
-
-const buttonVariants = {
-  hover: {
-    scale: 1.1,
-    textShadow: "0px 0px 8px rgb(255,255,255)",
-    boxShadow: "0px 0px 8px rgb(255,255,255)",
-    transition: {
-      repeatType: "mirror",
-      repeat: Infinity,
-      duration: 0.3,
-    },
-  },
-};
+import Modal from "./Modal";
+import AnimatedButton from "./AnimatedButton";
 
 export default function Form() {
   const navigate = useNavigate();
@@ -25,6 +13,8 @@ export default function Form() {
     birthday: "",
     email: "",
   });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [modalConfig, setModalConfig] = useState(null);
 
   const inputs = [
     {
@@ -69,7 +59,11 @@ export default function Form() {
     try {
       const snapshot = await get(formDataRef);
       if (snapshot.exists()) {
-        alert("Ten adres e-mail już istnieje w bazie danych!");
+        setModalConfig({
+          isOpen: true,
+          buttonText: "Spróbuj ponownie",
+          contentText: "Ten adres e-mail już istnieje w bazie danych!",
+        });
         return;
       }
 
@@ -80,37 +74,58 @@ export default function Form() {
         birthday: values.birthday,
       });
 
+      setFormSubmitted(true);
+      setModalConfig({
+        isOpen: true,
+        buttonText: "Zamknij",
+        contentText: "Formularz wysłany poprawnie !",
+      });
+
       setValues((prevValues) => ({
         ...prevValues,
         name: "",
         email: "",
         birthday: "",
       }));
-      alert("Success");
-
-      navigate("/thanks");
     } catch (error) {
-      console.error(error);
+      setModalConfig({
+        isOpen: true,
+        buttonText: "Spróbuj ponownie",
+        contentText: "Wystąpił bład podczas wysyłania formularza",
+      });
+      console.log(error);
+    }
+  }
+  function handleCloseModal() {
+    setModalConfig(null);
+    if (formSubmitted) {
+      navigate("/thanks");
     }
   }
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <h2>Zapisz się na webinar!</h2>
-      {inputs.map((input) => (
-        <FormInput key={input.id} input={input} onChange={handleOnChange} value={values[input.name]} />
-      ))}
+    <>
+      <form onSubmit={handleFormSubmit}>
+        <h2>Zapisz się na webinar!</h2>
+        {inputs.map((input) => (
+          <FormInput key={input.id} input={input} onChange={handleOnChange} value={values[input.name]} />
+        ))}
 
-      {landingSettings.gift ? (
-        <motion.button className="button" variants={buttonVariants} whileHover="hover" type="submit">
-          Wyślij i odbierz prezent!
-        </motion.button>
-      ) : (
-        <motion.button className="button" variants={buttonVariants} whileHover="hover" type="submit">
-          Wyślij
-        </motion.button>
+        {landingSettings.gift ? (
+          <AnimatedButton type="submit">Wyślij i odbierz prezent!</AnimatedButton>
+        ) : (
+          <AnimatedButton type="submit">Wyślij</AnimatedButton>
+        )}
+      </form>
+      {modalConfig && (
+        <Modal
+          isOpen={modalConfig.isOpen}
+          onClose={handleCloseModal}
+          buttonText={modalConfig.buttonText}
+          contentText={modalConfig.contentText}
+        />
       )}
-    </form>
+    </>
   );
 }
 
