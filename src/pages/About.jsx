@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import DescriptionWebinar from "../components/DescriptionWebinar";
-import imagePaths from "../utils/images";
 import { motion } from "framer-motion";
+import DescriptionWebinar from "../components/DescriptionWebinar";
+import AnimatedButton from "../components/AnimatedButton";
+import imagePaths from "../utils/images";
 
 const containerVariants = {
   hidden: {
@@ -25,30 +26,18 @@ const containerVariants = {
   },
 };
 
-const buttonVariants = {
-  hover: {
-    scale: 1.1,
-    textShadow: "0px 0px 8px rgb(255,255,255)",
-    boxShadow: "0px 0px 8px rgb(255,255,255)",
-    transition: {
-      repeatType: "mirror",
-      repeat: Infinity,
-      duration: 0.3,
-    },
-  },
-};
-
 export default function About({ webinarContentTop, webinarContentBottom }) {
   return (
     <motion.div className="about" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <div className="about-wrapper">
         <img src={imagePaths.homeMainImg} alt="Misja Perfekcja w pracy" className="about-main-img" />
-        <DescriptionWebinar webinarContentTop={webinarContentTop} webinarContentBottom={webinarContentBottom} />
+        <DescriptionWebinar
+          webinarContentTop={webinarContentTop}
+          webinarContentBottom={webinarContentBottom}
+        />
         <div className="next">
           <Link to="/registration">
-            <motion.button className="button" variants={buttonVariants} whileHover="hover">
-              Dalej
-            </motion.button>
+            <AnimatedButton>Dalej</AnimatedButton>
           </Link>
         </div>
       </div>
