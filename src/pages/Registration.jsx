@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { landingSettings } from "../utils/data-settings";
 
 import Gift from "../components/Gift";

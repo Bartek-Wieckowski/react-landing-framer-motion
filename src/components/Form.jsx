@@ -78,7 +78,7 @@ export default function Form() {
       setModalConfig({
         isOpen: true,
         buttonText: "Zamknij",
-        contentText: "Formularz wysłany poprawnie !",
+        contentText: "Formularz wysłany poprawnie!",
       });
 
       setValues((prevValues) => ({
@@ -91,7 +91,7 @@ export default function Form() {
       setModalConfig({
         isOpen: true,
         buttonText: "Spróbuj ponownie",
-        contentText: "Wystąpił bład podczas wysyłania formularza",
+        contentText: "Wystąpił błąd podczas wysyłania formularza...",
       });
       console.log(error);
     }
