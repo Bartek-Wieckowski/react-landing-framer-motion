@@ -567,6 +567,7 @@ ul li::before {
 .thanks-info {
   text-align: center;
 }
+.thanks-btn{text-align: right;}
 
 .effect-slider-wrapper {
   position: relative;
