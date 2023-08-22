@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { landingSettings } from "../utils/data-settings";
 import EffectSlider from "../components/EffectSlider";
+import { Link } from "react-router-dom";
+import AnimatedButton from "../components/AnimatedButton";
 
 const containerVariants = {
   hidden: {
@@ -59,6 +61,11 @@ export default function Thanks() {
         </div>
       </div>
       <EffectSlider />
+      <div className="thanks-btn">
+      <Link to="/">
+        <AnimatedButton>Strona główna</AnimatedButton>
+      </Link>
+      </div>
     </motion.div>
   );
 }
