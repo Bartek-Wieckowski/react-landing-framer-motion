@@ -3,11 +3,12 @@ const landingSettings = {
   date: {
     day: 23,
     month: 8,
-    year: 2023,
+    year: 2024,
     hours: 20,
     minutes: 0,
   },
   gift: true,
+  link: "https://www.link-do-webinara-t3st.pl",
 };
 
 const webinarNumberAndDate = `Webinar ${landingSettings.date.year}-${landingSettings.date.month}-${landingSettings.date.day}`;
