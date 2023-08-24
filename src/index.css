@@ -653,3 +653,21 @@ ul li::before {
   color: #333;
   font-weight: 700;
 }
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.025);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.its-comming-now{color: red; animation: pulse 1.5s infinite;}
