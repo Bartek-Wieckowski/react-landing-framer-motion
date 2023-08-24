@@ -74,6 +74,31 @@ export default function Form() {
         birthday: values.birthday,
       });
 
+      const requestData = {
+        name: values.name,
+        email: values.email,
+        webinarLink: landingSettings.link,
+        gift: landingSettings.gift,
+      };
+
+      try {
+        const response = await fetch("https://thebart.usermd.net/email_backend/send.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        });
+        if (response.ok) {
+          const responseData = await response.json();
+          console.log("Success:", responseData);
+        } else {
+          console.error("Request failed");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+
       setFormSubmitted(true);
       setModalConfig({
         isOpen: true,
