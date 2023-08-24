@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCountdown } from "../hooks/useCountdown";
 import { Link } from "react-router-dom";
 import AnimatedButton from "./AnimatedButton";
 
 function CountdownTimer({ targetDate, onCountdownExpired }) {
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
+  const [pulseAlert, setPulseAlert] = useState(false)
 
   const formattedHours = hours === 0 ? "0" : hours.toString().padStart(2, "0");
   const formattedMinutes = minutes === 0 ? "0" : minutes.toString().padStart(2, "0");
@@ -18,6 +19,14 @@ function CountdownTimer({ targetDate, onCountdownExpired }) {
     }
   }, [countdownExpired, onCountdownExpired]);
 
+  useEffect(() => {
+    const remainingTimeInSeconds = days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60 + seconds;
+    if (remainingTimeInSeconds <= 900) {
+      setPulseAlert(true);
+    }
+  }, [days, hours, minutes, seconds]);
+  
+
   return (
     <div className="countdown-container">
       {countdownExpired ? (
@@ -30,7 +39,7 @@ function CountdownTimer({ targetDate, onCountdownExpired }) {
       ) : (
         <>
           <h2 className="countdown-title">Do rozpoczęcia wydarzenia zostało:</h2>
-          <div className="countdown">
+          <div className={`countdown ${pulseAlert ? "its-comming-now" : ""}`}>
             <div className="countdown-item">
               <span className="countdown-value">{days}</span> dni
             </div>
