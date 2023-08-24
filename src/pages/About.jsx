@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { webinarContentBottom, webinarContentTop } from "../utils/data-settings";
 import DescriptionWebinar from "../components/DescriptionWebinar";
 import AnimatedButton from "../components/AnimatedButton";
 import imagePaths from "../utils/images";
@@ -26,7 +27,7 @@ const containerVariants = {
   },
 };
 
-export default function About({ webinarContentTop, webinarContentBottom }) {
+export default function About() {
   return (
     <motion.div className="about" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <div className="about-wrapper">
