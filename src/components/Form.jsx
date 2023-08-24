@@ -96,7 +96,7 @@ export default function Form() {
           console.error("Request failed");
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
 
       setFormSubmitted(true);
