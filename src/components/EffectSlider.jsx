@@ -8,8 +8,8 @@ const wavingHandVariants = {
     x: -100,
   },
   waving: {
-    rotate: [0, 30, 0, 30, 0], 
-    x: [0, 30, 0, 30, 0], 
+    rotate: [0, 30, 0, 30, 0],
+    x: [0, 30, 0, 30, 0],
     transition: {
       duration: 4,
       repeat: Infinity,
@@ -39,8 +39,8 @@ export default function EffectSlider() {
         <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className="carousel-inner">
           {imagePaths.imagesSlider.map((img, index) => {
             return (
-              <motion.div className="item">
-                <img src={img} alt={`slider item ${index}`} key={index} />
+              <motion.div className="item" key={index + 1}>
+                <img src={img} alt={`slider item ${index}`} />
               </motion.div>
             );
           })}
