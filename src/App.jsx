@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { landingSettings, webinarContentTop, webinarContentBottom } from "./utils/data-settings";
+import { landingSettings} from "./utils/data-settings";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Registration from "./pages/Registration";
@@ -21,7 +21,7 @@ function App() {
               <Route
                 path="/about"
                 element={
-                  <About webinarContentTop={webinarContentTop} webinarContentBottom={webinarContentBottom} />
+                  <About />
                 }
               ></Route>
               <Route path="/registration" element={<Registration />}></Route>
