@@ -9,7 +9,7 @@ import Thanks from "./pages/Thanks";
 import PageNotFound from "./pages/PageNotFound";
 
 function App() {
-  const availablePaths = ["/", "/about", "/registration", "/thanks"];
+  const availablePaths = ["/react-landing-framer-motion", "/react-landing-framer-motion/about", "/react-landing-framer-motion/registration", "/react-landing-framer-motion/thanks"];
   const currentPath = window.location.pathname;
   const isKnownRoute = availablePaths.includes(currentPath);
 
