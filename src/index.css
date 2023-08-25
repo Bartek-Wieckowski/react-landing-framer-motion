@@ -21,7 +21,7 @@ body {
   font-weight: 400;
   font-family: var(--font-family);
   color: var(--color-primary);
-  background: var(--gradient-9) no-repeat;
+  background: var(--gradient-3) no-repeat;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -163,7 +163,7 @@ h3 {
 .button {
   color: white;
   padding: 10px 30px;
-  background: var(--teal-4);
+  background: var(--purple-6);
   border-radius: 50px;
   border: 1px solid white;
   margin: 40px auto 0;
@@ -241,6 +241,7 @@ header .title {
 header h1 {
   border-bottom: 1px solid var(--teal-4);
 }
+.logo{max-width: 200px;}
 
 @media (max-width: 991.98px) {
   header {
@@ -267,6 +268,7 @@ header h1 {
   max-width: 300px;
   width: 100%;
   border-radius: 12px;
+  object-fit: cover;
 }
 
 .about-wrapper .content {
@@ -539,7 +541,7 @@ ul li::before {
 
   .registration-wrapper .phoneScreen {
     width: 264px;
-    height: 567px;
+    height: 537px;
     position: absolute;
     top: 17px;
     left: 18px;
@@ -554,6 +556,7 @@ ul li::before {
   .registration-wrapper .phoneApp {
     width: 100%;
     border-radius: 32px;
+    height: 100%;
     ;
   }
 }

@@ -31,14 +31,14 @@ function CountdownTimer({ targetDate, onCountdownExpired }) {
     <div className="countdown-container">
       {countdownExpired ? (
         <>
-          <p className="countdown-expired">Webinar już się odbył, powiadomimy Cię o następnym 😊</p>
-          <a href="https://www.misjaperfekcja.pl/blog" target="_blank" rel="noopener noreferrer">
-            <AnimatedButton>CZYTAJ NASZ BLOG!</AnimatedButton>
+          <p className="countdown-expired">The session has already taken place, we will notify you of the next one 😊</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <AnimatedButton>READ OUR BLOG!</AnimatedButton>
           </a>
         </>
       ) : (
         <>
-          <h2 className="countdown-title">Do rozpoczęcia wydarzenia zostało:</h2>
+          <h2 className="countdown-title">The event is set to begin:</h2>
           <div className={`countdown ${pulseAlert ? "its-comming-now" : ""}`}>
             <div className="countdown-item">
               <span className="countdown-value">{days}</span> dni
@@ -54,7 +54,7 @@ function CountdownTimer({ targetDate, onCountdownExpired }) {
             </div>
           </div>
           <Link to="/about">
-            <AnimatedButton>DOWIEDZ SIĘ WIĘCEJ...</AnimatedButton>
+            <AnimatedButton>LEARN MORE...</AnimatedButton>
           </Link>
         </>
       )}

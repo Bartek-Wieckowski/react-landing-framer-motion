@@ -14,7 +14,7 @@ export default function Header({ webinarTitle, webinarDate }) {
   return (
     <section>
       <header>
-        <img src={imagePaths.logo} alt="" />
+        <img src={imagePaths.logo} alt=""  className="logo"/>
         <motion.div
           className="title"
           initial={{ y: -250 }}
@@ -22,9 +22,9 @@ export default function Header({ webinarTitle, webinarDate }) {
           transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
         >
           <h1 style={!webinarHasPassed ? {} : { borderBottom: "none" }}>
-            {!webinarHasPassed ? `Webinar : ${webinarTitle}` : ""}
+            {!webinarHasPassed ? `Session : ${webinarTitle}` : ""}
           </h1>
-          <h2>{!webinarHasPassed ? `Data : ${formattedDate}` : ""}</h2>
+          <h2>{!webinarHasPassed ? `Date : ${formattedDate}` : ""}</h2>
         </motion.div>
       </header>
     </section>

@@ -31,14 +31,14 @@ export default function About() {
   return (
     <motion.div className="about" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <div className="about-wrapper">
-        <img src={imagePaths.homeMainImg} alt="Misja Perfekcja w pracy" className="about-main-img" />
+        <img src={imagePaths.homeMainImg} alt="" className="about-main-img" />
         <DescriptionWebinar
           webinarContentTop={webinarContentTop}
           webinarContentBottom={webinarContentBottom}
         />
         <div className="next">
           <Link to="/registration">
-            <AnimatedButton>Dalej</AnimatedButton>
+            <AnimatedButton>Next</AnimatedButton>
           </Link>
         </div>
       </div>

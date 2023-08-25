@@ -9,8 +9,8 @@ export default function PageNotFound() {
   useEffect(() => {
     setModalConfig({
       isOpen: true,
-      buttonText: "Zamknij",
-      contentText: "Przepraszamy taka strona nie istnieje...",
+      buttonText: "Close",
+      contentText: "Sorry such a site does not exist....",
     });
   }, []); 
 
@@ -21,7 +21,7 @@ export default function PageNotFound() {
   return (
     <div className="page-not-found-wrapper">
       <Link to="/">
-        <AnimatedButton>Strona główna</AnimatedButton>
+        <AnimatedButton>Homepage</AnimatedButton>
       </Link>
       {modalConfig && (
         <Modal

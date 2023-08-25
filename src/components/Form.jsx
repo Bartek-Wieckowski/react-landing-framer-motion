@@ -5,6 +5,7 @@ import { webinarNumberAndDate, landingSettings } from "../utils/data-settings";
 import app from "../firebaseConfig";
 import Modal from "./Modal";
 import AnimatedButton from "./AnimatedButton";
+import emailjs from "emailjs-com"
 
 export default function Form() {
   const navigate = useNavigate();
@@ -21,9 +22,9 @@ export default function Form() {
       id: 1,
       name: "name",
       type: "text",
-      placeholder: "Wpisz swoje imię",
-      errormessage: "Wpisz conajmniej 3 litery bez znaków specjalnych i liczb.",
-      label: "Imię",
+      placeholder: "Enter your name",
+      errormessage: "Enter at least 3 letters without special characters or numbers.",
+      label: "Name",
       pattern: "^[A-Za-z]{3,16}$",
       required: true,
     },
@@ -31,8 +32,8 @@ export default function Form() {
       id: 2,
       name: "email",
       type: "email",
-      placeholder: "Podaj swój adres e-mail",
-      errormessage: "Wprowadź poprawy adres!",
+      placeholder: "Enter your e-mail address",
+      errormessage: "Enter an improved address!",
       label: "E-mail",
       required: true,
     },
@@ -41,8 +42,8 @@ export default function Form() {
       name: "birthday",
       type: "date",
       errormessage:
-        "Data urodzenia nie jest konieczna, ale podając ją możemy lepiej dostosować treści jakie możesz od nas otrzymywać.",
-      label: "Data urodzenia",
+        "Date of birth is not necessary, but by providing it we can better customize the content you may receive from us.",
+      label: "Birthday",
     },
   ];
 
@@ -61,8 +62,8 @@ export default function Form() {
       if (snapshot.exists()) {
         setModalConfig({
           isOpen: true,
-          buttonText: "Spróbuj ponownie",
-          contentText: "Ten adres e-mail już istnieje w bazie danych!",
+          buttonText: "Try again",
+          contentText: "This email address already exists in the database!",
         });
         return;
       }
@@ -74,36 +75,20 @@ export default function Form() {
         birthday: values.birthday,
       });
 
-      const requestData = {
-        name: values.name,
-        email: values.email,
-        webinarLink: landingSettings.link,
-        gift: landingSettings.gift,
-      };
+      emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 'template_pz5h6xp', e.target, process.env.REACT_APP_EMAILJS_API_ID)
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
 
-      try {
-        const response = await fetch("https://thebart.usermd.net/email_backend/send.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        });
-        if (response.ok) {
-          const responseData = await response.json();
-          console.log("Success:", responseData);
-        } else {
-          console.error("Request failed");
-        }
-      } catch (error) {
-        // console.error(error);
-      }
+      
 
       setFormSubmitted(true);
       setModalConfig({
         isOpen: true,
-        buttonText: "Zamknij",
-        contentText: "Formularz wysłany poprawnie!",
+        buttonText: "Close",
+        contentText: "Form sent correctly!",
       });
 
       setValues((prevValues) => ({
@@ -115,8 +100,8 @@ export default function Form() {
     } catch (error) {
       setModalConfig({
         isOpen: true,
-        buttonText: "Spróbuj ponownie",
-        contentText: "Wystąpił błąd podczas wysyłania formularza...",
+        buttonText: "Try again",
+        contentText: "An error occurred while submitting the form....",
       });
       console.log(error);
     }
@@ -131,15 +116,15 @@ export default function Form() {
   return (
     <>
       <form onSubmit={handleFormSubmit}>
-        <h2>Zapisz się na webinar!</h2>
+        <h2>Sign up for an interview with us!</h2>
         {inputs.map((input) => (
           <FormInput key={input.id} input={input} onChange={handleOnChange} value={values[input.name]} />
         ))}
 
         {landingSettings.gift ? (
-          <AnimatedButton type="submit">Wyślij i odbierz prezent!</AnimatedButton>
+          <AnimatedButton type="submit">Send and receive a gift!</AnimatedButton>
         ) : (
-          <AnimatedButton type="submit">Wyślij</AnimatedButton>
+          <AnimatedButton type="submit">Send</AnimatedButton>
         )}
       </form>
       {modalConfig && (

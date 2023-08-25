@@ -41,29 +41,24 @@ export default function Thanks() {
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <div className="thanks-info">
-        <h2>Dziękujemy, za wypełnienie formularza!</h2>
+        <h2>Thank you, for filling out the form!</h2>
         {!landingSettings.gift ? (
           <motion.p variants={childVariants}>
-            Prosimy o sprawdzenie skrzynki e-mail, tam powinien czekać na Ciebie gotowy link do wydarzenia!
+            Please check your email inbox, there should be a ready link to the event waiting for you!
           </motion.p>
         ) : (
           <motion.p variants={childVariants}>
-            Prosimy o sprawdzenie skrzynki e-mail, tam powinien czekać na Ciebie gotowy link do wydarzenia
-            oraz Twój prezent!
+            Please check your email inbox, there should be a ready link to the event waiting for you there and your gift!
           </motion.p>
         )}
         <div>
-          <h3>Prowadzący:</h3>
-          <h3>
-            mgr kosmetolog <strong>Małgorzata Więckowska</strong> specjalista terapii przeciwtrądzikowych
-          </h3>
-          <p>O to efekty moich holistycznych terapii przeciwtrądzikowych</p>
+          <h3>Our photographs:</h3>
         </div>
       </div>
       <EffectSlider />
       <div className="thanks-btn">
       <Link to="/">
-        <AnimatedButton>Strona główna</AnimatedButton>
+        <AnimatedButton>Homepage</AnimatedButton>
       </Link>
       </div>
     </motion.div>
