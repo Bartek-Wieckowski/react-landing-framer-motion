@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-landing-framer-motion/static/css/main.7d5d1644.css",
-    "main.js": "/react-landing-framer-motion/static/js/main.eff7c893.js",
+    "main.js": "/react-landing-framer-motion/static/js/main.72f9800f.js",
     "static/media/6.jpg": "/react-landing-framer-motion/static/media/6.42f20f06b1e5e195f0bc.jpg",
     "static/media/5.jpg": "/react-landing-framer-motion/static/media/5.4935ade6bb5d04fd98cf.jpg",
     "static/media/3.jpg": "/react-landing-framer-motion/static/media/3.4558894986563d9b5b8f.jpg",
@@ -17,10 +17,10 @@
     "static/media/swipe.svg": "/react-landing-framer-motion/static/media/swipe.1cbcbb0b36fd97f7b31c89b5060c0a11.svg",
     "index.html": "/react-landing-framer-motion/index.html",
     "main.7d5d1644.css.map": "/react-landing-framer-motion/static/css/main.7d5d1644.css.map",
-    "main.eff7c893.js.map": "/react-landing-framer-motion/static/js/main.eff7c893.js.map"
+    "main.72f9800f.js.map": "/react-landing-framer-motion/static/js/main.72f9800f.js.map"
   },
   "entrypoints": [
     "static/css/main.7d5d1644.css",
-    "static/js/main.eff7c893.js"
+    "static/js/main.72f9800f.js"
   ]
 }
