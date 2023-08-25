@@ -53,7 +53,7 @@ function CountdownTimer({ targetDate, onCountdownExpired }) {
               <span className="countdown-value">{formattedSeconds}</span> sekund
             </div>
           </div>
-          <Link to="/about">
+          <Link to="/react-landing-framer-motion/about">
             <AnimatedButton>LEARN MORE...</AnimatedButton>
           </Link>
         </>

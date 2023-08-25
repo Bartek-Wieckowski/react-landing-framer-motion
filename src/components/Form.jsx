@@ -109,7 +109,7 @@ export default function Form() {
   function handleCloseModal() {
     setModalConfig(null);
     if (formSubmitted) {
-      navigate("/thanks");
+      navigate("/react-landing-framer-motion/thanks");
     }
   }
 

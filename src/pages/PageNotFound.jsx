@@ -20,7 +20,7 @@ export default function PageNotFound() {
 
   return (
     <div className="page-not-found-wrapper">
-      <Link to="/">
+      <Link to="/react-landing-framer-motion">
         <AnimatedButton>Homepage</AnimatedButton>
       </Link>
       {modalConfig && (

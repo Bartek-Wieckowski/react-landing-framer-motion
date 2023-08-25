@@ -37,7 +37,7 @@ export default function About() {
           webinarContentBottom={webinarContentBottom}
         />
         <div className="next">
-          <Link to="/registration">
+          <Link to="/react-landing-framer-motion/registration">
             <AnimatedButton>Next</AnimatedButton>
           </Link>
         </div>

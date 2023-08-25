@@ -57,7 +57,7 @@ export default function Thanks() {
       </div>
       <EffectSlider />
       <div className="thanks-btn">
-      <Link to="/">
+      <Link to="/react-landing-framer-motion">
         <AnimatedButton>Homepage</AnimatedButton>
       </Link>
       </div>

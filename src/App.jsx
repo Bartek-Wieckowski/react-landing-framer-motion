@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { landingSettings } from "./utils/data-settings";
 import Header from "./components/Header";
@@ -18,17 +18,17 @@ function App() {
       {isKnownRoute && <Header webinarTitle={landingSettings.title} webinarDate={landingSettings.date} />}
 
       <div className="container">
-        <HashRouter>
+        <BrowserRouter>
           <AnimatePresence mode="wait">
             <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/about" element={<About />}></Route>
-              <Route path="/registration" element={<Registration />}></Route>
-              <Route path="/thanks" element={<Thanks />}></Route>
+              <Route path="/react-landing-framer-motion" element={<Home />}></Route>
+              <Route path="/react-landing-framer-motion/about" element={<About />}></Route>
+              <Route path="/react-landing-framer-motion/registration" element={<Registration />}></Route>
+              <Route path="/react-landing-framer-motion/thanks" element={<Thanks />}></Route>
               <Route path="*" element={<PageNotFound />}></Route>
             </Routes>
           </AnimatePresence>
-        </HashRouter>
+        </BrowserRouter>
       </div>
     </div>
   );
