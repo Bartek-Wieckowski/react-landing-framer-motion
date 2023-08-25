@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { landingSettings } from "./utils/data-settings";
 import Header from "./components/Header";
@@ -9,13 +9,9 @@ import Thanks from "./pages/Thanks";
 import PageNotFound from "./pages/PageNotFound";
 
 function App() {
-  const availablePaths = ["/react-landing-framer-motion", "/react-landing-framer-motion/about", "/react-landing-framer-motion/registration", "/react-landing-framer-motion/thanks"];
-  const currentPath = window.location.pathname;
-  const isKnownRoute = availablePaths.includes(currentPath);
-
   return (
     <div className="app">
-      {isKnownRoute && <Header webinarTitle={landingSettings.title} webinarDate={landingSettings.date} />}
+      <Header webinarTitle={landingSettings.title} webinarDate={landingSettings.date} />
 
       <div className="container">
         <BrowserRouter>
